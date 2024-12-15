@@ -163,8 +163,6 @@ int main(){
     
 
 
-
-
     
     // Printing of array
 
