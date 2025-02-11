@@ -67,7 +67,7 @@ void explainVector(){
     it++;
     cout<<*(it)<<" ";// -----> 10
     it+=2;
-    cout<<*(it)<<" ";// -----> 6
+    cout<<*(it)<<endl;// -----> 6
     
     //Iterators other than begin:
     /*
@@ -79,8 +79,35 @@ void explainVector(){
     // vector<int>::iterator it = v7.rend(); {10,20,30,40} points memory location before 10
     // vector<int>::iterator it = v7.rbegin(); //{10,20,30,40} points at 40 at iterated by i--
 
+    vector<int> vec1;
+    vec1.push_back(10);
+    vec1.push_back(20);
+    vec1.push_back(30);
 
+
+    for(vector<int>::iterator it2=vec1.begin();it2 != vec1.end();it2++){
+        cout<<*(it2)<<" ";
+    }
+    cout<<endl;
+    //STL gives auto == vector<int>::iterator
+    //auto automatically assigns it to vector iterator
+    for(auto it3=vec1.begin();it3 != vec1.end();it3++){
+        cout<<*(it3)<<" ";
+    }
+    //auto 
+    //eg auto a = 1 // automatically makes it int datatype
+    //eg auto a = "Kishan" // automatically makes it string datatype
+    cout<<endl;
+    //Another method:
+    //Auto iterates on the data type
+    for(auto it5:vec1){
+        cout<<it5<<" ";
+    }    
+
+    //deletion in a vector
 }
+
+
 
 int main(){
     // explainPair();
