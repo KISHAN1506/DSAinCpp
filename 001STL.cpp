@@ -165,7 +165,7 @@ void explainVector(){
     }cout<<endl;
 
     vt2.clear();
-    cout<<vt2.empty(); // 1 = TRUE
+    cout<<vt2.empty(); // 1 = TRUE && 0 = FALSE
 }
 
 
