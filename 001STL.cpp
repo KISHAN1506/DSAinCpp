@@ -1,5 +1,6 @@
 #include <iostream>
 #include <utility>
+#include <vector>
 
 using namespace std;
 
@@ -35,6 +36,49 @@ void explainVector(){
     v2.push_back(make_pair(2,3));//here we have to enter with curly braces {2,3}->[make_pair] for me
     v2.emplace_back(2,3); // here emplace_back automatically assume 2 values to be a pair
     
+    vector<int> v3(5,100); // ----->{100,100,100,100,100}
+    vector<int> v4(5); //----> {0,0,0,0,0}
+
+    //v4 is another countainer which is the copy of countainer v3
+    vector<int> v5(v3); // ----> {100,100,100,100,100}
+
+    //we can also do
+    v5.push_back(1);//----->{100,100,100,100,100,1}
+    //This shows that vector is dynamic in nature even if we have predefined the size as 5
+
+
+    //for accessing the value of the vector
+    //These are the two ways to access value in a vector
+    //but we generally use v5[1] method only because it corresponds to array indexing
+    cout<<v5[1]<<" "<<v5.at(0)<<endl;
+    
+    //also the vector can be indexed through the method of iteration
+    //v.begin() points to memory address of the first element in v6
+    //it is giving iterator named it the address of first element in v6
+    // the value is accessed using *(v6.begin)
+    vector<int> v6 ;
+
+    v6.push_back(20);
+    v6.push_back(10);
+    v6.push_back(15);
+    v6.push_back(6);
+    v6.push_back(7);
+    vector<int>::iterator it = v6.begin();
+    it++;
+    cout<<*(it)<<" ";// -----> 10
+    it+=2;
+    cout<<*(it)<<" ";// -----> 6
+    
+    //Iterators other than begin:
+    /*
+    v7={10,20,30,40}
+    this end iterator points at the memory location just after after the element at last value
+    eg of v7 , we do it-- to get the value 40
+    */
+    // vector<int>::iterator it = v7.end();
+    // vector<int>::iterator it = v7.rend(); {10,20,30,40} points memory location before 10
+    // vector<int>::iterator it = v7.rbegin(); //{10,20,30,40} points at 40 at iterated by i--
+
 
 }
 
