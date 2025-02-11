@@ -105,6 +105,67 @@ void explainVector(){
     }    
 
     //deletion in a vector
+    vector<int> vec2;
+    vec2.push_back(10);
+    vec2.push_back(20);
+    vec2.push_back(12);
+    vec2.push_back(23);
+    // {10,20,12,23}
+    cout<<endl;
+    // deletion of element from the array
+    vec2.erase(vec2.begin()+1); // {10,12,23} here removal of elements possible
+    //the vector will be reshuffled
+    // end value will have last address + 1
+    vec2.erase(vec2.begin()+1,vec2.begin()+3); 
+
+    for(auto it6:vec2){
+        cout<<it6<<" ";
+    }   
+
+
+    //INSERT VALUES:
+    vector<int> vv1(2,100); // {100,100}
+    vv1.insert(vv1.begin(),300); // {300,100,100}
+    //to insert multiple values:
+    vv1.insert(vv1.begin()+1,2,10); //{300,10,10,100,100}
+
+    vector<int> copy(2,50); // {50,50}
+    vv1.insert(vv1.begin(),copy.begin(),copy.end());
+
+    cout<<endl;
+    //SMALL FUNCTIONS OF Vector:
+    vector<int> vect1;
+    vect1.push_back(10);
+    vect1.push_back(20);
+    //vect1 --> {10,20}
+    
+    cout<<vect1.size()<<endl;
+    vect1.pop_back();
+
+    for(auto itt:vect1){
+        cout<<itt<<" ";
+    }cout<<endl;
+
+    //swap
+    vector<int> vt1;
+    vt1.push_back(10);
+    vt1.push_back(20);
+
+    vector<int> vt2;
+    vt2.push_back(30);
+    vt2.push_back(40);
+
+    vt1.swap(vt2);
+
+    for(auto itt:vt1){
+        cout<<itt<<" ";
+    }cout<<endl;
+    for(auto itt:vt2){
+        cout<<itt<<" ";
+    }cout<<endl;
+
+    vt2.clear();
+    cout<<vt2.empty(); // 1 = TRUE
 }
 
 
