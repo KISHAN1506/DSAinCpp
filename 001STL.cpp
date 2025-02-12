@@ -241,11 +241,37 @@ void explainStack(){
 }
 
 
+void explainQueue(){
+    //Queue is of the type First In First Out(FIFO)
+    queue<int> q;
+    q.push(1);
+    q.push(2);
+    q.push(4);
+
+    // │  4  │
+    // │  2  │
+    // │  1  │
+    // └─────┘
+    //    ^
+    //    | 
+    q.back() += 5; // 1 2 9
+    cout<<q.back()<<endl; // 9
+    cout<<q.front()<<endl; // 1
+
+    q.pop(); // pop happens in FIFO order // 2 9
+    cout<<q.front()<<endl;// 2
+    // rest : size,swap,empty is same as stack
+}
+
+
+
+
 int main(){
     // explainPair();
     // explainVector();
     // explainList();
     // explainDeques();
-    explainStack();
+    // explainStack();
+    explainQueue();
     return 0;
 }
