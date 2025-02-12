@@ -239,8 +239,6 @@ void explainStack(){
 
     //Time complexity in stack , all operations are of type O(1);
 }
-
-
 void explainQueue(){
     //Queue is of the type First In First Out(FIFO)
     queue<int> q;
@@ -260,10 +258,38 @@ void explainQueue(){
 
     q.pop(); // pop happens in FIFO order // 2 9
     cout<<q.front()<<endl;// 2
-    // rest : size,swap,empty is same as stack
+    // rest : size,swap,empty is same as stack 
+    // All the operations are happening in O(1) TC.
 }
 
+void explainPQ(){
+    // Maximum Heap
+    // The maximum element stays at the top for anything string,char,int
+    // This is not a linear data structure inside of it tree data structure is maintained
+    priority_queue<int> pq;
+    pq.push(5); // {5}
+    pq.push(2); // {5,2}
+    pq.push(8); // {8,5,2}
+    // pq.emplace(10); Again emplace does not work
+    pq.push(10); // {10,8,5,2}
+    
+    pq.pop(); // {8,5,2}
+    cout<<pq.top()<<endl; // 8
+    
+    //Minimum Heap (Opposite Heap)
+    //Mininum on the top
+    
+    priority_queue<int, vector<int>, greater<int> > pq2;
 
+    pq2.push(5); //{5}
+    pq2.push(2); //{2,5}
+    pq2.push(8); //{2,5,8}
+    pq2.push(10); //{2,5,8,10}
+
+    cout<<pq2.top()<<endl; // 2
+
+
+}
 
 
 int main(){
@@ -272,6 +298,7 @@ int main(){
     // explainList();
     // explainDeques();
     // explainStack();
-    explainQueue();
+    // explainQueue();
+    explainPQ();
     return 0;
 }
