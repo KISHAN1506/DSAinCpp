@@ -2,6 +2,7 @@
 #include <utility>
 #include <vector>
 #include <list>
+
 using namespace std;
 
 void explainPair(){
@@ -185,10 +186,37 @@ void explainList(){
     }
 }
 
+void explainDeques(){
+    deque<int> dq;
+    dq.push_back(2);
+    dq.push_back(5);
+    // dq.emplace_back(5);  again not working in my system
+    dq.push_front(7);
+    dq.push_front(10);
+    // dq.emplace_front(10); same issue
+    dq.pop_back(); // Removes last element
+    dq.pop_front(); // Removes first element from the deque
+    cout<<endl;
+    for(auto it : dq){
+        cout<<it<<" ";
+    }cout<<endl;
+
+    //replaces last element with the given element.
+    dq.back() = 401;
+    //replaces first element with the given element.
+    dq.front() = 100;
+
+    for(auto it : dq){
+        cout<<it<<" ";
+    }
+    //rest of the functions in list are same as the vectors
+    //begin, end, rbegin, rend, clear, insert, size, swap.
+}
 
 int main(){
     // explainPair();
     // explainVector();
     // explainList();
+    explainDeques();
     return 0;
 }
