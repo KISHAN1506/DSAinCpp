@@ -26,6 +26,7 @@ void explainVector(){
     //emplace_back is faster than push_back 
     //because emplace_back would construct the object immediately in the vector,
     //while push_back, would first construct anonymous object and then would copy it to the vector.
+    // https://stackoverflow.com/questions/23717151/why-emplace-back-is-faster-than-push-back
     v.push_back(1);
     v.emplace_back(3);
 
