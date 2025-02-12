@@ -185,7 +185,6 @@ void explainList(){
         cout<<it<<" ";
     }
 }
-
 void explainDeques(){
     deque<int> dq;
     dq.push_back(2);
@@ -212,11 +211,41 @@ void explainDeques(){
     //rest of the functions in list are same as the vectors
     //begin, end, rbegin, rend, clear, insert, size, swap.
 }
+void explainStack(){
+    stack<int> st;
+    // stack is a Last In First Out (LIFO) function.
+    st.push(1);
+    st.push(2);
+    st.push(3);
+    st.push(3);
+    st.push(5); // Emplace is not working in my system/version
+    //Stack does not have something like st[0]
+    //mainly it has 3 functionc : push,pop,top
+    //    |
+    //    v
+    // │  5  │
+    // │  3  │
+    // │  3  │
+    // │  2  │
+    // │  1  │
+    // └─────┘
+    cout<<st.top()<<endl;// 5
+    st.pop(); //topmost in the stack will be removed
+    cout<<st.top()<<endl;// 3
+    cout<<st.size()<<endl; // 4
+    cout<<st.empty()<<endl; // 0(false) since stack is not empty
+    stack<int> s2;
+    s2.swap(st); // swapping of 2 stacks
+
+    //Time complexity in stack , all operations are of type O(1);
+}
+
 
 int main(){
     // explainPair();
     // explainVector();
     // explainList();
-    explainDeques();
+    // explainDeques();
+    explainStack();
     return 0;
 }
