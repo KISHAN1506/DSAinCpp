@@ -1,7 +1,7 @@
 #include <iostream>
 #include <utility>
 #include <vector>
-
+#include <list>
 using namespace std;
 
 void explainPair(){
@@ -19,7 +19,6 @@ void explainPair(){
     //to get 5
     cout<<p2.second.second<<" "<<p2.second.first;
 }
-
 void explainVector(){
     //Vectors:
     vector<int> v;
@@ -168,11 +167,28 @@ void explainVector(){
     vt2.clear();
     cout<<vt2.empty(); // 1 = TRUE && 0 = FALSE
 }
+void explainList(){
+    list<int> ls;
+    ls.push_back(2); //{2}
+    ls.push_back(10); //{2,10}
 
+    // Insert in vector is costlier in terms of time complexity as compared to push_front() in list
+    // Since in push_front it maintain doubly linked list while in vector it is singly linked list
+    ls.push_front(5); //{5,2,10}
+    // ls.emplace_front(2); In my version emplace_front is not working
+
+    //rest of the functions in list are same as the vectors
+    //begin, end, rbegin, rend, clear, insert, size, swap.
+
+    for(auto it:ls){
+        cout<<it<<" ";
+    }
+}
 
 
 int main(){
     // explainPair();
-    explainVector();
+    // explainVector();
+    // explainList();
     return 0;
 }
