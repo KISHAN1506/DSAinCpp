@@ -3,6 +3,7 @@
 #include <vector>
 #include <list>
 #include <set>
+#include <unordered_set>
 using namespace std;
 
 void explainPair(){
@@ -331,7 +332,18 @@ void explainMultiSet(){
     // rest all the functions are same as set
 }
 
+void explainUSet(){
+    unordered_set<int> st;
+    // It stores everything in a randomised order
+    // It stores unique value but does not stores in the sorted order
+    // Just the lower_bound and upper_bound does not work 
+    // rest everthing is same 
 
+    // all the operations are having a time complexity of O(1)
+    // for even the worst of the worst case that happens in 1 in a million 
+    // It goes for time complexity of O(N) , ie linear time complexity
+    
+}
 
 
 int main(){
@@ -343,6 +355,7 @@ int main(){
     // explainQueue();
     // explainPQ();
     // explainSet();
-    explainMultiSet();
+    // explainMultiSet();
+    explainUSet();
     return 0;
 }
