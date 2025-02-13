@@ -4,6 +4,8 @@
 #include <list>
 #include <set>
 #include <unordered_set>
+#include <map>
+
 using namespace std;
 
 void explainPair(){
@@ -331,7 +333,6 @@ void explainMultiSet(){
     // ms.erase(ms.find(1),ms.find(1) + 2); // find finds the 2 occerence of the passed element 
     // rest all the functions are same as set
 }
-
 void explainUSet(){
     unordered_set<int> st;
     // It stores everything in a randomised order
@@ -342,9 +343,14 @@ void explainUSet(){
     // all the operations are having a time complexity of O(1)
     // for even the worst of the worst case that happens in 1 in a million 
     // It goes for time complexity of O(N) , ie linear time complexity
-    
+
 }
 
+void explainMap(){
+    // key and value pair and it can have any datatype for key or value
+    map<int, int> mpp;
+
+}
 
 int main(){
     // explainPair();
@@ -356,6 +362,7 @@ int main(){
     // explainPQ();
     // explainSet();
     // explainMultiSet();
-    explainUSet();
+    // explainUSet();
+    explainMap();
     return 0;
 }
