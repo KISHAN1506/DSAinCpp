@@ -289,7 +289,6 @@ void explainPQ(){
 
 
 }
-
 void explainSet(){
     set<int> st;
     st.insert(1); //{1}
@@ -315,6 +314,25 @@ void explainSet(){
     //In set everthing happens in O(log(n)) time complexity
 
 }
+void explainMultiSet(){
+    multiset<int> ms;
+    ms.insert(1); //{1}
+    ms.insert(1); //{1,1}
+    ms.insert(1); //{1,1,1}
+    ms.erase(1) ;// It erases all the occurences of 1 in the multiset 
+
+    int cnt = ms.count(1); //count number of 1s present in set
+    //If you want to erase only eg 2 number of 1 then
+
+    //It you want to erase only 1 -- 1 in ms
+    ms.erase(ms.find(1)); // find finds the first occerence of the passed element 
+
+    // ms.erase(ms.find(1),ms.find(1) + 2); // find finds the 2 occerence of the passed element 
+    // rest all the functions are same as set
+}
+
+
+
 
 int main(){
     // explainPair();
@@ -324,6 +342,7 @@ int main(){
     // explainStack();
     // explainQueue();
     // explainPQ();
-    explainSet();
+    // explainSet();
+    explainMultiSet();
     return 0;
 }
