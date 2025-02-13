@@ -2,7 +2,7 @@
 #include <utility>
 #include <vector>
 #include <list>
-
+#include <set>
 using namespace std;
 
 void explainPair(){
@@ -261,7 +261,6 @@ void explainQueue(){
     // rest : size,swap,empty is same as stack 
     // All the operations are happening in O(1) TC.
 }
-
 void explainPQ(){
     // Maximum Heap
     // The maximum element stays at the top for anything string,char,int
@@ -291,6 +290,31 @@ void explainPQ(){
 
 }
 
+void explainSet(){
+    set<int> st;
+    st.insert(1); //{1}
+    st.insert(2); //{1,2}
+    st.insert(2); //{1,2}
+    st.insert(4); //{1,2,4}
+    st.insert(3); //{1,2,3,4}
+    st.insert(5); //{1,2,3,4,5}
+
+    //begin(),end(),rbegin(),rend(),size()
+    // empty() and swap() are same as those of above
+
+    auto it = st.find(1); // Can return 1 or 0 which is either true or false
+    auto it = st.find(3);
+    st.erase(it);
+
+    auto it1 = st.find(2);
+    auto it2 = st.find(4);
+    st.erase(it1,it2); //{1,4,5} deletion is of type [2,4)
+    st.lower_bound(2); // gives indeices of 2
+    st.upper_bound(4); // gives indices of the space after the space having the value 4
+
+    //In set everthing happens in O(log(n)) time complexity
+
+}
 
 int main(){
     // explainPair();
@@ -299,6 +323,7 @@ int main(){
     // explainDeques();
     // explainStack();
     // explainQueue();
-    explainPQ();
+    // explainPQ();
+    explainSet();
     return 0;
 }
