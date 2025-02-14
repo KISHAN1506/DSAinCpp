@@ -305,7 +305,7 @@ void explainSet(){
     // empty() and swap() are same as those of above
 
     auto it = st.find(1); // Can return 1 or 0 which is either true or false
-    auto it = st.find(3);
+    auto itt = st.find(3);
     st.erase(it);
 
     auto it1 = st.find(2);
@@ -331,6 +331,7 @@ void explainMultiSet(){
     ms.erase(ms.find(1)); // find finds the first occerence of the passed element 
 
     // ms.erase(ms.find(1),ms.find(1) + 2); // find finds the 2 occerence of the passed element 
+    //This is throwing error ^^^^^^^^^^
     // rest all the functions are same as set
 }
 void explainUSet(){
@@ -345,13 +346,51 @@ void explainUSet(){
     // It goes for time complexity of O(N) , ie linear time complexity
 
 }
-
 void explainMap(){
-    // key and value pair and it can have any datatype for key or value
+    // key and value pair and it can have any datatype for key or value (int, double, pair)
     map<int, int> mpp;
+    map<int , pair<int , int> > mpp1;
+    map<pair<int,int> , int> mpp2;
+
+    // here 1 is the key and 2 is the value corresponding to that key
+    mpp[1] = 2;
+    // mpp.emplace({3,1}); again does not work on my system
+    mpp.insert(make_pair(3,1));
+    mpp.insert(make_pair(2,4));
+
+    // map stores unique key in sorted order similar to Set data structure countainer
+    // {
+    //     stored in the form 
+    //     sorted wrt keys
+    //     {1,2}
+    //     {2,4}
+    //     {3,1}
+    // }
+    
+    mpp1[1] = make_pair(2,3);
+    mpp2[make_pair(3,1)] = 4;
+
+    //for iteration in map
+    for(auto it:mpp){
+        cout<<it.first<<" "<<it.second<<endl;
+    }
+
+    cout<<mpp[1]<<endl; // prints value 
+    cout<<mpp[5]<<endl; // prints 0 (NULL) since 5 does not exist
+
+    auto it = mpp.find(1); // finds and get the pointer pointing to space having 1 as key
+    cout<<it->second<<endl;
+
+    auto itt = mpp.find(5); // it points at mpp.end()
+
+    auto it = mpp.lower_bound(2);
+    auto it = mpp.upper_bound(3);
+
+    //other (erase,swap,size,empty) are same
+}
+void explainMultipMap(){
 
 }
-
 int main(){
     // explainPair();
     // explainVector();
