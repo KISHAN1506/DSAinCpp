@@ -388,9 +388,15 @@ void explainMap(){
 
     //other (erase,swap,size,empty) are same
 }
-void explainMultipMap(){
+void explainMultiMap(){
+    // everything is same as map just you can store duplicate keys
+    //only mpp[key] cannot be used here
+}
+
+void explainUnorderedMap(){
 
 }
+
 int main(){
     // explainPair();
     // explainVector();
@@ -402,6 +408,8 @@ int main(){
     // explainSet();
     // explainMultiSet();
     // explainUSet();
-    explainMap();
+    // explainMap();
+    // explainMultiMap();
+    explainUnorderedMap();
     return 0;
 }
