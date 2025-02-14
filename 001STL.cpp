@@ -383,8 +383,8 @@ void explainMap(){
 
     auto itt = mpp.find(5); // it points at mpp.end()
 
-    auto it = mpp.lower_bound(2);
-    auto it = mpp.upper_bound(3);
+    // auto it = mpp.lower_bound(2);
+    // auto it = mpp.upper_bound(3);
 
     //other (erase,swap,size,empty) are same
     // works in O(log(n))
@@ -393,11 +393,70 @@ void explainMultiMap(){
     // everything is same as map just you can store duplicate keys
     //only mpp[key] cannot be used here
 }
-
 void explainUnorderedMap(){
     // It has unique keys but it will not be sorted 
     // It in almost all the cases works in O(1). constant time complexity
     // For worst case 1 in million time it works in O(N) linear time complexity
+}
+
+
+bool comp(pair<int ,int> p1,pair<int ,int> p2){
+    if(p1.second < p2.second) return true;
+    if(p1.second > p2.second) return false;
+    // if(p1.second == p2.second){
+
+    // }
+    // we can omit this loc since if the above 2 does not happen then automatically they are same
+    //for Descending order
+    if(p1.first > p2.first) return true;
+    // if(p1.first < p2.first) return false;
+    return false;
+}
+
+void explainExtra(){
+    // sort(a,a+n);
+    // sort(v.begin(),v.end());
+    
+    // sort(a+2,a+4);
+    // sort(a,a+n,greater<int>); sorting in descending order
+    // pair<int,int> a[] = {make_pair(1,2),make_pair(2,1),make_pair(4,1)};
+
+    // sorting according to the second element
+    // if the second element is same then sort it 
+    // according to first element in descending order
+    // sort(a,a+n,comp)
+
+    int num = 7;
+    int cnt = __builtin_popcount(num); // 7 == 111 in binary so it will return no of 1s ie 3
+    cout<<cnt<<endl;
+    long long num2 = 168253637222;
+    // ll for long long
+    int cnt2 = __builtin_popcountll(num); // 7 == 111 in binary so it will return no of 1s ie 3
+    cout<<cnt2<<endl;
+
+    // string s = "123";
+    // do{
+    //     cout<<s<<endl;
+    // }while(next_permutation(s.begin(),s.end()));
+    
+    // it does not gives all permutations
+    string s2 = "231";
+    do{
+        cout<<s2<<endl;
+    }while(next_permutation(s2.begin(),s2.end()));
+    // IN dictionary order
+    // 231
+    // 312
+    // 321
+
+    //to get all start from sorted string
+    sort(s2.begin(),s2.end());
+    do{
+        cout<<s2<<endl;
+    }while(next_permutation(s2.begin(),s2.end()));
+    
+    // for max value
+    // int maxi = *max_element(a,a+n);
 }
 
 int main(){
@@ -413,6 +472,7 @@ int main(){
     // explainUSet();
     // explainMap();
     // explainMultiMap();
-    explainUnorderedMap();
+    // explainUnorderedMap();
+    explainExtra();
     return 0;
 }
