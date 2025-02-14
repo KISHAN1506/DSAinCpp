@@ -387,6 +387,7 @@ void explainMap(){
     auto it = mpp.upper_bound(3);
 
     //other (erase,swap,size,empty) are same
+    // works in O(log(n))
 }
 void explainMultiMap(){
     // everything is same as map just you can store duplicate keys
@@ -394,7 +395,9 @@ void explainMultiMap(){
 }
 
 void explainUnorderedMap(){
-
+    // It has unique keys but it will not be sorted 
+    // It in almost all the cases works in O(1). constant time complexity
+    // For worst case 1 in million time it works in O(N) linear time complexity
 }
 
 int main(){
