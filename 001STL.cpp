@@ -424,20 +424,20 @@ void explainExtra(){
     // sorting according to the second element
     // if the second element is same then sort it 
     // according to first element in descending order
-    // sort(a,a+n,comp)
+    // sort(a,a+n,comp);
 
     int num = 7;
     int cnt = __builtin_popcount(num); // 7 == 111 in binary so it will return no of 1s ie 3
     cout<<cnt<<endl;
-    long long num2 = 168253637222;
+    long long num2 = 1682536376222;
     // ll for long long
-    int cnt2 = __builtin_popcountll(num); // 7 == 111 in binary so it will return no of 1s ie 3
+    int cnt2 = __builtin_popcountll(num2); // 7 == 111 in binary so it will return no of 1s ie 3
     cout<<cnt2<<endl;
 
-    // string s = "123";
-    // do{
-    //     cout<<s<<endl;
-    // }while(next_permutation(s.begin(),s.end()));
+    string s = "123";
+    do{
+        cout<<s<<endl;
+    }while(next_permutation(s.begin(),s.end()));
     
     // it does not gives all permutations
     string s2 = "231";
