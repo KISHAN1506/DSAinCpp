@@ -2,7 +2,7 @@
 using namespace std;
 
 
-void explainCount(){
+void CountOfDigit(){
     int num;
     cin>>num;
     while(num!=0){
@@ -23,7 +23,21 @@ void explainCount(){
     cout<<cnt;
 }
 
+void RevNumber(){
+    int num;
+    cin>>num;
+    int rev = 0;
+    while (num != 0){
+        int digit = num%10;
+        rev *=10;
+        rev += digit;
+        num /=10;
+    }
+    cout<<rev;
+}
+
 int main(){
-    explainCount();
+    // CountOfDigit();
+    RevNumber();
     return 0;
 }
