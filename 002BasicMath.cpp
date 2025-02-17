@@ -130,7 +130,6 @@ void GcdEuclideanAlgorithm(){
     else cout<<a;
 
     //wherever there is division happening TC(logn)
-
     // TC = O(log(phiΦ)(min(a,b)))
     // in base we use Φ because fluctuation in a and b is happening
 
