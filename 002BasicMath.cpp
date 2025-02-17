@@ -52,9 +52,9 @@ void printAllDivisor(){
         }
     }
     sort(v1.begin(),v1.end());
-    // for(auto it : v1){
-    //     cout<<it<<" ";
-    // }
+    for(auto it : v1){
+        cout<<it<<" ";
+    }
 }
 void checkPrime(){
     int n ;
@@ -73,8 +73,6 @@ void checkPrime(){
         printf("Prime");
     }else printf("Not Prime");
 }
-
-
 void GcdHcfBrute(){
     // GCD - Greatest Common Divsor
     // HCF - Highest common Factor
@@ -107,11 +105,43 @@ void GcdHcfBrute(){
 
 }
 
+void GcdEuclideanAlgorithm(){
+    // gcd (n1,n2) == gcd (n1-n2,n2) proveded n1>n2
+    // gcd (1,b) == gcd (a-b,b) proveded a>b
+
+    // gcd (20,15) == gcd(5,15) == gcd(15,5) == gcd(10,5) == gcd(5,5) == gcd(0,5)
+    // when 1 of the number becomes zero other number is the gcd
+
+    // eg gcd(52,10) = 42,10 = 32,10 = 22,10 = 12,10 = 2,10
+    // gcd(10,2) = 8,2 = 6,2 = 4,2 = 2,2 = 0,2
+    // we can directly jump from 52,10 -> 2,10 by just doing (52%10,10)
+    // similarly from 8,2 -> 0,2 by (8%2,2)
+
+    // Better way to write this algorithm is 
+    // gcd(a,b) = gcd(a%b,b)
+
+    int a,b;
+    cin>>a>>b;
+    while(a>0 && b>0){
+        if(a>b) a = a%b;
+        else b = b%a;
+    }
+    if(a==0) cout<<b;
+    else cout<<a;
+
+    //wherever there is division happening TC(logn)
+
+    // TC = O(log(phiΦ)(min(a,b)))
+    // in base we use Φ because fluctuation in a and b is happening
+
+}
+
 int main(){
     // CountOfDigit();
     // RevNumber();
     // printAllDivisor();
     // checkPrime();
-    GcdHcfBrute();
+    // GcdHcfBrute();
+    GcdEuclideanAlgorithm();
     return 0;
 }
