@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math.h>
+
 using namespace std;
 
 
@@ -23,7 +23,6 @@ void CountOfDigit(){
     int cnt = (int)log10(num) +1;
     cout<<cnt;
 }
-
 void RevNumber(){
     int num;
     cin>>num;
@@ -36,13 +35,15 @@ void RevNumber(){
     }
     cout<<rev;
 }
-
 void printAllDivisor(){
     int n;
     cin>>n;
     //we use vector here since we do not know how many elements we are going to store
     vector<int> v1;
-    for(int i = 0;i<sqrt(n);i++){
+    // for(int i = 0;i<sqrt(n);i++){
+    // Instead of using sqrt and importing libraries ans sqrt is comparitively slow
+    // we can just do i*i < n ==== i < sqrt(n)
+    for(int i = 0;i*i<n;i++){
         if(n%i==0){
             v1.push_back(i);
             if((n/i)!=i){
@@ -55,8 +56,6 @@ void printAllDivisor(){
     //     cout<<it<<" ";
     // }
 }
-
-
 void checkPrime(){
     int n ;
     cin>>n;
@@ -76,10 +75,43 @@ void checkPrime(){
 }
 
 
+void GcdHcfBrute(){
+    // GCD - Greatest Common Divsor
+    // HCF - Highest common Factor
+
+    // GCD (9,12) = 3
+    // GCD (11,13) = 1
+    // GCD (20,40) = 20
+
+    //bruteforce method 
+    int n1,n2;
+    cin>> n1>>n2;
+    int gcd = 0 ;
+    // we use min here because if 9 and 12 are egs then surely 10 won't divide 9
+    for(int i = 1;i<=min(n1,n2);i++){
+        if((n1%i == 0) && (n2%i == 0)){
+            gcd = i;
+        }
+    }
+    cout<<gcd<<endl;
+    // TC = O(min(n1,n2));
+
+    // Method 2 ie going from opposite side
+    // this method also take TC O(min(n1,n2))
+    for(int i = min(n1,n2);i>0;i--){
+        if((n1%i == 0) && (n2%i == 0)){
+            cout<<i<<endl;
+            break;
+        }
+    }
+
+}
+
 int main(){
     // CountOfDigit();
     // RevNumber();
     // printAllDivisor();
-    checkPrime();
+    // checkPrime();
+    GcdHcfBrute();
     return 0;
 }
