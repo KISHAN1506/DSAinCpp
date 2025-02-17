@@ -51,14 +51,35 @@ void printAllDivisor(){
         }
     }
     sort(v1.begin(),v1.end());
-    for(auto it : v1){
-        cout<<it<<" ";
-    }
+    // for(auto it : v1){
+    //     cout<<it<<" ";
+    // }
 }
+
+
+void checkPrime(){
+    int n ;
+    cin>>n;
+    int ctr = 0;
+    for(int i = 1;i*i<=n;i++){
+        if (n%i == 0){
+            ctr++;
+            if((n/i) != i){
+                ctr++;
+            }
+        }
+    }
+
+    if(ctr == 2){
+        printf("Prime");
+    }else printf("Not Prime");
+}
+
 
 int main(){
     // CountOfDigit();
     // RevNumber();
-    printAllDivisor();
+    // printAllDivisor();
+    checkPrime();
     return 0;
 }
