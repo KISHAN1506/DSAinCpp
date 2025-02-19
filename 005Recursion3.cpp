@@ -3,10 +3,9 @@ using namespace std;
 
 // sum of number using recursion
 //  1. Parameter wise and functional way
+
 //Global Parameter way
-
 int sum = 0;
-
 void sumofnum(int n){
     if (n == 0){
         return;
@@ -16,7 +15,6 @@ void sumofnum(int n){
 }
 
 // Functional Way
-
 int sumusingfunc(int i , int n){
     int sum = 0;
     if (i == n){
@@ -27,6 +25,18 @@ int sumusingfunc(int i , int n){
 }
 
 
+// Factorial of a number
+int fact(int n){
+    if (n==0 || n==1){
+        return 1;
+    }
+    return  n * fact(n-1);
+}
+// Time Complexity = O(N)
+// Space Complexity = O(N) [Stack Space]
+
+
+
 int main(){
     int n;
     scanf("%d",&n);
@@ -34,5 +44,9 @@ int main(){
     printf("%d\n",sum);
     int sum2 = sumusingfunc(1,n);
     printf("%d\n",sum2);
-
+    
+    printf("\n");
+    int num;
+    scanf("%d",&num);
+    printf("%d",fact(num));
 }
