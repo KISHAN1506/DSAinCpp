@@ -10,6 +10,7 @@ void sumofnum(int n){
     if (n == 0){
         return;
     }
+    
     sum += n;
     sumofnum(n-1);
 }
