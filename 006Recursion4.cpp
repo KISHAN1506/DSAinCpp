@@ -15,7 +15,12 @@ void swapping(int i,int arr[],int n){
 
 
 // checking if the string is palindrome or not a palindrome asdfdsa == asdfdsa
-
+// O(N/2)
+bool Palin(int i ,string s){
+    if(i > s.size() / 2) return true;
+    if(s[i] != s[s.size() - i -1]) return false;
+    return Palin(i+1,s);
+}
 
 int main(){
     int n;
@@ -25,8 +30,9 @@ int main(){
     swapping(0,arr,n);
     for(int i = 0;i<n;i++) cout<<arr[i]<<" ";
 
-
-
+    cout<<endl;
+    // Palindrome Checking
     string s = "madam";
+    cout<<Palin(0,s);
 
 } 
