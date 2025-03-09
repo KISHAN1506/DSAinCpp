@@ -1,16 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    // Bubble sort
-    int n;
-    cin>>n;
-    int arr[n];
-    for(int i = 0;i<n;i++){
-        cin>>arr[i];
-    }
-
-    // For Sorting:
+void Bubble_sort(int arr[],int n){
     for(int i = 0;i<n;i++){
         for(int j = 0;j<n-i-1;j++){
             if(arr[j]>arr[j+1]){
@@ -20,9 +11,38 @@ int main(){
             }
         }
     }
+}
+
+void Selection_sort(int arr[],int n){
+    for(int i = 0;i<=n-2;i++){
+        int mini = i;
+        for(int j = i;j<=n-1;j++){
+            if(arr[j]<arr[mini]){
+                mini = j;
+            }
+        }
+        int temp = arr[mini];
+        arr[mini] = arr[i];
+        arr[i] = temp;
+    }
+}
+
+int main(){
+
+
+    int n;
+    cin>>n;
+    int arr[n];
+    for(int i = 0;i<n;i++){
+        cin>>arr[i];
+    }
+
+    // Bubble_sort(arr,n);
+    Selection_sort(arr,n);
 
     for(int i = 0;i<n;i++){
         cout<<arr[i]<<" ";
     }
+
     return 0;
 }
