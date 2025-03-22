@@ -82,6 +82,7 @@ int main(){
     */
 
 
+    /*
     // Optimal Solution:
     int largest = arr[0];
     // Assuming array have only positive value if it has negative value then use INT_MIN
@@ -114,5 +115,20 @@ int main(){
         }
     }
     cout<<"Second Smallest: "<<sec_smallest<<endl;
+    */
+
+    // Check if array is sorted
+    int ctr = 0;
+    for(int i = 1;i<n;i++){
+        if(arr[i-1]>arr[i]){
+            ctr = 1;
+            break;
+        }
+    }
+    if(ctr == 1){
+        cout<<"Array is not sorted"<<endl;
+    }else{
+        cout<<"Array is sorted"<<endl;
+    }
     return 0;
 }
