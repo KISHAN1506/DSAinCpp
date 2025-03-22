@@ -134,7 +134,7 @@ int main(){
     }
     */
 
-    // Remove Duplicates from the s orted array
+    // Remove Duplicates from the sorted array
     /*
     set<int> s;
     for(int i = 0;i<n;i++){
