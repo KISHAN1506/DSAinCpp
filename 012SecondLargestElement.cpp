@@ -1,5 +1,6 @@
 #include <iostream>
 #include <climits>
+#include <set>
 using namespace std;
 
 int main(){
@@ -117,6 +118,7 @@ int main(){
     cout<<"Second Smallest: "<<sec_smallest<<endl;
     */
 
+    /*
     // Check if array is sorted
     int ctr = 0;
     for(int i = 1;i<n;i++){
@@ -130,5 +132,33 @@ int main(){
     }else{
         cout<<"Array is sorted"<<endl;
     }
+    */
+
+    // Remove Duplicates from the s orted array
+    /*
+    set<int> s;
+    for(int i = 0;i<n;i++){
+        s.insert(arr[i]);
+    }
+    int index = 0;
+    for(auto it:s){
+        arr[index] = it;
+        index++;
+    }
+    // since zero based indexing so last index value will be new individual array length
+    cout<<"No of unique Values: "<<index<<endl;
+    */
+   
+    // Optimal solution:
+    // 2 pointer approach
+   int i = 0;
+   for(int j = 0;j<n;j++){
+       if(arr[j] != arr[i]){
+           arr[i+1] = arr[j];
+           i++;
+        }
+    }
+    cout<<"No of unique Values: "<<i+1;
+
     return 0;
 }
