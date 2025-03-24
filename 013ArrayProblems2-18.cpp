@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <set>
+
 using namespace std;
 
 void reversee(int arr[],int start,int end){
@@ -130,6 +132,35 @@ int main(){
         }
     }
     */
+
+    // Union of Sorted Array:
+    // Taking array 2 input
+    int m;
+    cin>>m;
+    int arr2[m];
+    for(int i = 0;i<m;i++){
+        cin>>arr2[i];
+    }
+
+    // Bruteforce Approach
+    set<int> st;
+
+    for(int i = 0;i<n;i++){
+        st.insert(arr[i]);
+    }
+    for(int i = 0;i<m;i++){
+        st.insert(arr2[i]);
+    }
+    vector<int> temp;
+
+    for(auto it : st){
+        temp.push_back(it);
+    }
+    // while printing remove last whole array print to avoid confusion
+    for(auto it : temp){
+        cout<<it<<" ";
+    }
+
 
 
 
