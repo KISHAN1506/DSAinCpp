@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void reversee(int arr[],int start,int end){
@@ -31,9 +32,10 @@ int main(){
     arr[n-1] = temp;
     */
 
+    /*
     // Left rotation of array by d element
 
-    /*
+
     // Bruteforce approach
     int d;
     cin>>d;
@@ -59,11 +61,10 @@ int main(){
     for(int i = n-d;i<n;i++){
         arr[i] = temp[i-(n-d)];
     }
-    */
 
     
     // Optimal Solution
-    // ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+    // ❤️
     int d;
     cin>>d;
     // BY making MANUAL reverse method
@@ -75,9 +76,66 @@ int main(){
     reverse(arr,arr+d);
     reverse(arr+d,arr+n);
     reverse(arr,arr+n);
-    
 
+    */
+
+    /*
+    // Move Zeros to end
+
+    // Bruteforce Method:
+    // Step 1
+    vector<int> temp;
+    for(int i = 0;i<n;i++){
+        if(arr[i] != 0 ){
+            temp.push_back(arr[i]);
+        }
+    }
+    // Step 2
+    int numberOfZeroes = temp.size();
+    for(int i = 0;i<numberOfZeroes;i++){
+        arr[i] = temp[i];
+    }
+
+    // Step 3
+    for(int i = numberOfZeroes;i<n;i++){
+        arr[i] = 0;
+    }
+
+    // Optimal Approach
+    // ❤️
+
+    // Step 1 : find j ie first zero in array
+
+    int j = -1;
+    for(int i = 0;i<n;i++){
+        if(arr[i] == 0){
+            j = i;
+            break;
+        }
+    }
+    // Skip all of the next steps if no zeroes are present
+    if (j == -1){
+        for (int i = 0; i < n; i++){
+            cout<<arr[i]<<" ";
+        }
+        return 1;
+    }
+
+    for(int i = j+1;i<n;i++){
+        if(arr[i] != 0){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            j++;
+        }
+    }
+    */
+
+
+
+    
     // Printing of array
+
     for (int i = 0; i < n; i++){
         cout<<arr[i]<<" ";
     }
