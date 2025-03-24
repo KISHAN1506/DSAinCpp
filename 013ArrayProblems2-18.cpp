@@ -1,6 +1,17 @@
 #include <iostream>
 using namespace std;
 
+void reversee(int arr[],int start,int end){
+    while(start<=end){
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+
+
 int main(){
     int n;
     cin>>n;
@@ -11,7 +22,8 @@ int main(){
     }
     
     /*
-    // Left rotation of array by 1 element
+    // Left rotation of array by 1 element:
+
     int temp = arr[0];
     for(int i = 1;i<n;i++){
         arr[i-1] = arr[i];
@@ -21,9 +33,10 @@ int main(){
 
     // Left rotation of array by d element
 
+    /*
+    // Bruteforce approach
     int d;
     cin>>d;
-
     // Storing values in temp
     int temp[d];
     for(int i = 0;i<d;i++){
@@ -46,9 +59,23 @@ int main(){
     for(int i = n-d;i<n;i++){
         arr[i] = temp[i-(n-d)];
     }
+    */
 
+    
+    // Optimal Solution
+    // ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
+    int d;
+    cin>>d;
+    // BY making MANUAL reverse method
+    // reversee(arr,0,n-d-1);
+    // reversee(arr,n-d,n-1);
+    // reversee(arr,0,n-1);
 
-
+    // also in c++ STL we have inbuilt function:
+    reverse(arr,arr+d);
+    reverse(arr+d,arr+n);
+    reverse(arr,arr+n);
+    
 
     // Printing of array
     for (int i = 0; i < n; i++){
