@@ -142,6 +142,7 @@ int main(){
         cin>>arr2[i];
     }
 
+    /*
     // Bruteforce Approach
     set<int> st;
 
@@ -160,14 +161,52 @@ int main(){
     for(auto it : temp){
         cout<<it<<" ";
     }
-    
+    */
 
+    // Optimal Approach:
 
+    int i = 0;
+    int j = 0;
+    vector<int> unionArr;
     
+    while(i<n && j<m){
+        // unionArr.size() == 0 this condition is given for the condition where n = 1 
+        // so there is nothing there in unionArr.back() .
+        if(arr[i] <= arr2[j]){
+            if(unionArr.size() == 0 || unionArr.back() != arr[i]){
+                unionArr.push_back(arr[i]);
+            }
+            i++;
+        }
+        else{
+            if(unionArr.size() == 0 || unionArr.back() != arr2[i]){
+                unionArr.push_back(arr2[i]);
+            }
+            j++;
+        }
+    }
+    
+    while(j<m){
+        if(unionArr.size() == 0 || unionArr.back() != arr2[i]){
+            unionArr.push_back(arr2[i]);
+        }
+        j++;
+    }
+    
+    while(i<n){
+        if(unionArr.size() == 0 || unionArr.back() != arr[i]){
+            unionArr.push_back(arr[i]);
+        }
+        i++;
+    }
+    for(auto it : unionArr){
+        cout<<it<<" ";
+    }
+
     // Printing of array
 
-    for (int i = 0; i < n; i++){
-        cout<<arr[i]<<" ";
-    }
+    // for (int i = 0; i < n; i++){
+    //     cout<<arr[i]<<" ";
+    // }
     return 0;
 }
