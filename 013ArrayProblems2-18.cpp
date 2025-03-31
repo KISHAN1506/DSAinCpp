@@ -133,6 +133,9 @@ int main(){
     }
     */
 
+
+    /*
+
     // Union of Sorted Array:
     // Taking array 2 input
     int m;
@@ -142,7 +145,7 @@ int main(){
         cin>>arr2[i];
     }
 
-    /*
+
     // Bruteforce Approach
     set<int> st;
 
@@ -161,10 +164,10 @@ int main(){
     for(auto it : temp){
         cout<<it<<" ";
     }
-    */
+
 
     // Optimal Approach:
-
+    // 
     int i = 0;
     int j = 0;
     vector<int> unionArr;
@@ -200,6 +203,67 @@ int main(){
         i++;
     }
     for(auto it : unionArr){
+        cout<<it<<" ";
+    }
+
+    */
+
+    // Intersection of 2 Sorted array:
+
+    /*
+    vector<int> ans;
+    // Taking array 2 input
+    int m;
+    cin>>m;
+    int arr2[m];
+    for(int i = 0;i<m;i++){
+        cin>>arr2[i];
+    }
+    int vis[m] = {0};
+
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<m;j++){
+            if(arr[i] == arr2[j] && vis[j] == 0){
+                ans.push_back(arr[i]);
+                vis[j] = 1;
+                break;
+            }
+            if(arr2[j] > arr[i]) break;
+        }
+    }
+
+    for(auto it:ans){
+        cout<<it<<" ";
+    }
+    
+    */
+
+    // Optimal Approach:
+
+    int m;
+    cin>>m;
+    int arr2[m];
+    for(int i = 0;i<m;i++){
+        cin>>arr2[i];
+    }
+
+    int i = 0;
+    int j = 0;
+    vector<int> ans;
+
+    while(i<n && j<m){
+        if(arr[i] < arr2[j]){
+            i++;
+        }else if(arr2[i] < arr[j]){
+            j++;
+        }else{
+            ans.push_back(arr[i]);
+            i++;
+            j++;
+        }
+    }
+
+    for(auto it:ans){
         cout<<it<<" ";
     }
 
