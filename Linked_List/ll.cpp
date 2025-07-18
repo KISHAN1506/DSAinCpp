@@ -58,12 +58,66 @@ Node* insertAtTail(Node* head,int val) {
         return head;
 }
 
+Node* insertAtKth(Node* head,int val,int k){
+    if(head == NULL){
+        if(k==1){
+            Node* temp = new Node(val);
+        }else cout<<"Not Possible";
+    }
+
+    if(k == 1){
+        Node* temp = new Node(val,head);
+        return temp;
+    }
+
+    int ctr = 0;
+    Node* temp = head;
+    while(temp != NULL) {
+        ctr++;
+        if(ctr == k - 1){
+            // first connect
+            Node* data = new Node(val,temp->next);
+            // then change the linking
+            temp->next = data;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head;
+}
+
+
+Node* insertBeforeVal(Node* head,int ele,int val){
+    if(head == NULL){
+        return NULL;
+    }
+
+    if(head->data == val){
+        return new Node(val,head);
+    }
+
+    int ctr = 0;
+    Node* temp = head;
+    while(temp->next != NULL) {
+        ctr++;
+        if(temp->next->data == val){
+            // first connect
+            Node* data = new Node(ele,temp->next);
+            // then change the linking
+            temp->next = data;
+            break;
+        }
+        temp = temp->next;
+    }
+    return head;
+}
+
 int main(){
     vector<int> arr = {2,6,5,3};
     Node* head = nullptr;
     head = LlCreationUsingArr(arr);
 
-    head = insertAtTail(head,4);
+    head = insertBeforeVal(head,43,5);
     PrintingOfLL(head);
 
 
