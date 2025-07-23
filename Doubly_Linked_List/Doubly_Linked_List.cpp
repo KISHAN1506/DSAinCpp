@@ -41,7 +41,8 @@ void printingDLL(Node* head) {
 }
 
 Node* deleteHead(Node* head){
-    if(head == nullptr || head->next == nullptr){
+    if(head == nullptr
+         || head->next == nullptr){
         return NULL;
     }
     Node* temp = head;
@@ -69,13 +70,42 @@ Node* deleteTail(Node* head) {
     return head;
 }
 
+Node* deleteKthElement(Node* head,int k){
+    Node* mover = head;
+    int ctr = 1 ;
+    while(ctr != k) {
+        mover = mover->next;
+        ctr++;
+    }
+
+    if(mover->next == nullptr && mover->back == nullptr) {
+        return NULL;
+    }else if(mover->next == nullptr) {
+        return deleteTail(mover);
+    }else if(mover->back == nullptr) {
+        return deleteHead(mover);
+    }
+    
+    Node* front = mover->next;
+    Node* prev = mover->back;
+
+    prev->next = front;
+    front->back = prev;
+
+    mover->next = nullptr;
+    mover->back = nullptr;
+
+    free(mover);
+    return head;
+
+}
+
 int main(){
-    int arr[] = {1,2,3,4};
+    int arr[] = {1,2,3,4,5,6,7,8};
     int size = sizeof(arr)/sizeof(arr[0]);
     Node* head = ArrayToDLL(arr,size);
 
-    head = deleteHead(head);
-    head = deleteTail(head);
+    head = deleteKthElement(head,3);
     printingDLL(head);
     return 0;
 }
